@@ -1,11 +1,11 @@
-// css
-import styles from './Landing.module.css'
+import React from 'react'
+import { Main } from '../../components/Common/Index'
 
 const Landing = ({ user }) => {
   return (
-    <main className={styles.container}>
+    <Main>
       <h1>hello, {user ? user.name : 'friend'}</h1>
-    </main>
+    </Main>
   )
 }
 

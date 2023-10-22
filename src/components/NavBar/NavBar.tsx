@@ -1,4 +1,4 @@
-// npm modules
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
@@ -9,6 +9,7 @@ const NavBar = ({ user, handleLogout }) => {
           <li>Welcome, {user.name}</li>
           <li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
           <li><NavLink to="/auth/change-password">Change Password</NavLink></li>
+          <li><NavLink to="/chats">Chats</NavLink></li>
         </ul>
       :
         <ul>

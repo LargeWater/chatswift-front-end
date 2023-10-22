@@ -1,12 +1,9 @@
-// npm modules
+import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Main, Input, Message, Form, Label, Button } from '../../components/Common/Index'
 
-// services
 import * as authService from '../../services/authService'
-
-// css
-import styles from './Login.module.css'
 
 const LoginPage = ({ handleAuthEvt }) => {
   const navigate = useNavigate()
@@ -17,12 +14,12 @@ const LoginPage = ({ handleAuthEvt }) => {
     password: '',
   })
 
-  const handleChange = evt => {
+  const handleChange = (evt: { target: { name: any; value: any } }) => {
     setMessage('')
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
-  const handleSubmit = async evt => {
+  const handleSubmit = async (evt: { preventDefault: () => void }) => {
     evt.preventDefault()
     try {
       if (!import.meta.env.VITE_BACK_END_SERVER_URL) {
@@ -44,36 +41,36 @@ const LoginPage = ({ handleAuthEvt }) => {
   }
 
   return (
-    <main className={styles.container}>
+    <Main >
       <h1>Log In</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
+      <Message>{message}</Message>
+      <Form autoComplete="off" onSubmit={handleSubmit}>
+        <Label>
           Email
-          <input
+          <Input
             type="text"
             value={email}
             name="email"
             onChange={handleChange}
           />
-        </label>
-        <label className={styles.label}>
+        </Label>
+        <Label>
           Password
-          <input
+          <Input
             type="password"
             value={password}
             name="password"
             onChange={handleChange}
           />
-        </label>
+        </Label>
         <div>
           <Link to="/">Cancel</Link>
-          <button className={styles.button} disabled={isFormInvalid()}>
+          <Button disabled={isFormInvalid()}>
             Log In
-          </button>
+          </Button>
         </div>
-      </form>
-    </main>
+      </Form>
+    </Main>
   )
 }
 

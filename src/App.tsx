@@ -1,22 +1,20 @@
-// npm modules
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
-// pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 
-// components
+
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
-// services
+
 import * as authService from './services/authService'
 
-// styles
 import './App.css'
+
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
