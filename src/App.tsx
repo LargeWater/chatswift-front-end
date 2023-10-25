@@ -5,6 +5,7 @@ import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import ChatComponent from './pages/Chats/Chats'
 
 
 import NavBar from './components/NavBar/NavBar'
@@ -51,6 +52,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path='/chats' element={<ChatComponent />} />
       </Routes>
     </>
   )
